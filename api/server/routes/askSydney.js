@@ -52,11 +52,7 @@ router.post('/', async (req, res) => {
     response.invocationId = convo.invocationId ? convo.invocationId + 1 : 1;
     response.title = convo.jailbreakConversationId
       ? await getConvoTitle(convo.conversationId)
-      : await titleConvo({
-          model,
-          message: text,
-          response: JSON.stringify(response.response)
-        });
+      : 'SYDNEY-TBD';
     response.conversationId = convo.conversationId
       ? convo.conversationId
       : crypto.randomUUID();

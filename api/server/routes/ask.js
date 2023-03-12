@@ -125,11 +125,11 @@ router.post('/', async (req, res) => {
     }
 
     if (!parentMessageId) {
-      gptResponse.title = await titleConvo({
+      gptResponse.title = ['chatgpt', 'chatgptCustom'].includes(model) ? await titleConvo({
         model,
         message: text,
         response: JSON.stringify(gptResponse.text)
-      });
+      }) : 'TBD';
     }
     gptResponse.sender = model === 'chatgptCustom' ? chatGptLabel : model;
     gptResponse.final = true;

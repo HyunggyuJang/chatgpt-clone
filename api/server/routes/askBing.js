@@ -51,11 +51,7 @@ router.post('/', async (req, res) => {
     await saveMessage(userMessage);
 
     if (!convo.conversationSignature) {
-      response.title = await titleConvo({
-        model,
-        message: text,
-        response: JSON.stringify(response.response)
-      });
+      response.title = 'BING-TBD';
     }
 
     response.text = response.response;
