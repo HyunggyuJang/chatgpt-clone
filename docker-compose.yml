@@ -1,19 +1,8 @@
 version: "3.4"
 
 services:
-  react-client:
-    image: react-client
-    build:
-      context: .
-      target: react-client
-      network: host
-    volumes:
-      - /dev:/dev
-      - ./client:/client
-      - /client/node_modules
   api:
     depends_on:
-      - react-client
       - mongodb
     image: node-api
     build:
@@ -26,7 +15,7 @@ services:
       - ./api/.env
     environment:
       - NODE_ENV=production
-      - MONGO_URI=mongodb://mongodb:27017/chatgpt-clone
+      - MONGO_URI=mongodb://0.0.0.0:27017/chatgpt-clone
     volumes:
       - /dev:/dev
       - ./api:/api
