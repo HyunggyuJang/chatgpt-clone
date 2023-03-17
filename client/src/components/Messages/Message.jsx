@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import TextWrapper from './TextWrapper';
-import crypto from 'crypto';
 import MultiMessage from './MultiMessage';
 import { useSelector, useDispatch } from 'react-redux';
 import HoverButtons from './HoverButtons';

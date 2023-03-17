@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { SSE } from '~/utils/sse';
-import crypto from 'crypto';
 import SubmitButton from './SubmitButton';
 import Regenerate from './Regenerate';
 import ModelMenu from '../Models/ModelMenu';
