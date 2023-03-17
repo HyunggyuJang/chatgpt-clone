@@ -4,7 +4,8 @@ services:
   react-client:
     image: react-client
     build:
-      context: ./client
+      context: .
+      target: react-client
       network: host
     volumes:
       - /dev:/dev
@@ -16,7 +17,8 @@ services:
       - mongodb
     image: node-api
     build:
-      context: ./api
+      context: .
+      target' node-api
       network: host
     restart: always
     network_mode: host
