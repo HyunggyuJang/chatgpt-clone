@@ -18,7 +18,7 @@ services:
     image: node-api
     build:
       context: .
-      target' node-api
+      target: node-api
       network: host
     restart: always
     network_mode: host
