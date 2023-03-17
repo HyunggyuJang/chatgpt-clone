@@ -13,6 +13,7 @@ services:
   api:
     depends_on:
       - react-client
+      - mongodb
     image: node-api
     build:
       context: ./api
@@ -23,8 +24,17 @@ services:
       - ./api/.env
     environment:
       - NODE_ENV=production
-      - MONGO_URI=mongodb://172.19.0.2:27017/chatgpt-clone
+      - MONGO_URI=mongodb://mongodb:27017/chatgpt-clone
     volumes:
       - /dev:/dev
       - ./api:/api
       - /api/node_modules
+  mongodb:
+    image: mongo:4.4.18
+    restart: always
+    network_mode: host
+    container_name: mongodb
+    volumes:
+      - /dev:/dev
+      - ./data-node:/data/db
+    command: mongod --noauth
