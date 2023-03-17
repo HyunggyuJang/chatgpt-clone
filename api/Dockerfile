@@ -6,6 +6,8 @@ COPY package*.json /api/
 RUN npm install
 # Copy the current directory contents into the container at /api
 COPY . /api/
+# Copy the client side code
+COPY --from=react-client:latest /client/public /client/public
 # Make port 3080 available to the world outside this container
 EXPOSE 3080
 # Expose the server to 0.0.0.0
