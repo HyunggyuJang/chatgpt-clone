@@ -2,20 +2,20 @@ version: "3.4"
 
 services:
   api:
+    ports:
+      - 3080:3080
     depends_on:
       - mongodb
     image: node-api
     build:
       context: .
       target: node-api
-      network: host
     restart: always
-    network_mode: host
     env_file:
       - ./api/.env
     environment:
       - NODE_ENV=production
-      - MONGO_URI=mongodb://0.0.0.0:27017/chatgpt-clone
+      - MONGO_URI=mongodb://mongodb:27017/chatgpt-clone
     volumes:
       - /dev:/dev
       - ./api:/api
@@ -23,7 +23,6 @@ services:
   mongodb:
     image: mongo:4.4.18
     restart: always
-    network_mode: host
     container_name: mongodb
     volumes:
       - /dev:/dev
