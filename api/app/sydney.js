@@ -16,6 +16,7 @@ const askSydney = async ({ text, onProgress, convo }) => {
   let options = {
     jailbreakConversationId: true,
     onProgress,
+    toneStyle: 'precise'
   };
 
   if (convo.jailbreakConversationId) {
